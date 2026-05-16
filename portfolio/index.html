@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portfolio profesional — Comunicación Social, Community Manager, Fotografía y Diseño">
+  <title>Tu Nombre — Portfolio Profesional</title>
+
+  <!-- Preconnect fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Outfit:wght@300;400;500;600&family=Playfair+Display:wght@400;700;900&family=Space+Grotesk:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&family=DM+Serif+Display&family=Raleway:wght@400;500;600;700&family=Nunito:wght@400;500;600;700&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/admin.css">
+
+  <style>
+    /* Keyframe used by toast */
+    @keyframes fadeUp {
+      from { opacity:0; transform:translateY(20px); }
+      to { opacity:1; transform:translateY(0); }
+    }
+    /* Certificates section */
+    .certs-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+      gap:1.5rem;
+    }
+    .cert-card {
+      padding:1.5rem 2rem;
+      border-radius:var(--radius-lg);
+      background:var(--bg-glass);
+      border:1px solid var(--border);
+      transition:all .35s var(--ease-out);
+    }
+    .cert-card:hover { border-color:var(--border-accent); transform:translateY(-4px); }
+    .cert-icon { font-size:1.8rem; margin-bottom:.75rem; }
+    .cert-title { font-family:var(--font-display); font-size:var(--text-lg); font-weight:700; margin-bottom:.25rem; }
+    .cert-issuer { font-size:var(--text-sm); color:var(--text-secondary); }
+    .cert-date { font-size:.7rem; letter-spacing:.1em; color:var(--accent); font-weight:600; margin-top:.5rem; display:block; }
+    /* Hero decorative number */
+    .hero-num {
+      font-family:var(--font-display);
+      font-size:clamp(8rem,20vw,18rem);
+      font-weight:800;
+      color:rgba(124,108,252,.04);
+      position:absolute;
+      right:-2rem; bottom:-3rem;
+      line-height:1;
+      pointer-events:none;
+      user-select:none;
+      letter-spacing:-0.05em;
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Loader ──────────────────────────────────────────────── -->
+<div id="loader">
+  <div class="loader-logo">TN</div>
+  <div class="loader-bar"><div class="loader-progress"></div></div>
+</div>
+
+<!-- ── Nav ─────────────────────────────────────────────────── -->
+<nav id="navbar">
+  <a href="#hero" class="nav-brand" id="footer-name">TN</a>
+  <ul class="nav-links">
+    <li><a href="#about">Sobre mí</a></li>
+    <li><a href="#services">Servicios</a></li>
+    <li><a href="#projects">Proyectos</a></li>
+    <li><a href="#experience">Experiencia</a></li>
+    <li><a href="#testimonials">Testimonios</a></li>
+    <li><a href="#contact">Contacto</a></li>
+  </ul>
+  <div class="nav-actions">
+    <button class="nav-btn-theme" id="theme-toggle" title="Cambiar modo">☀️</button>
+    <a href="#contact" class="btn btn-primary" style="font-size:.75rem;padding:.65rem 1.25rem">Contactar</a>
+    <button class="nav-hamburger" id="nav-hamburger">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- Mobile nav -->
+<div id="mobile-nav">
+  <a href="#about">Sobre mí</a>
+  <a href="#services">Servicios</a>
+  <a href="#projects">Proyectos</a>
+  <a href="#experience">Experiencia</a>
+  <a href="#testimonials">Testimonios</a>
+  <a href="#contact">Contacto</a>
+</div>
+<div id="nav-overlay"></div>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- HERO                                                       -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<section class="section" id="hero">
+  <div class="hero-bg-grid"></div>
+  <div class="hero-glow hero-glow-1"></div>
+  <div class="hero-glow hero-glow-2"></div>
+
+  <div class="container">
+    <div class="hero-content">
+      <!-- Left -->
+      <div>
+        <p class="hero-eyebrow">Disponible para proyectos</p>
+        <h1 class="hero-title" id="hero-name">Tu<br><span class="gradient-text">Nombre</span></h1>
+        <p class="hero-typed-wrapper">
+          <span id="typed-text"></span><span id="typed-cursor"></span>
+        </p>
+        <p class="hero-desc" id="hero-desc">
+          Especialista en comunicación digital, imagen y estrategia política e institucional. Creando mensajes que conectan, diseños que impactan.
+        </p>
+        <div class="hero-btns">
+          <a href="#projects" class="btn btn-primary" id="hero-cta1">Ver proyectos →</a>
+          <a href="#contact" class="btn btn-secondary" id="hero-cta2">Contactar</a>
+        </div>
+        <div class="hero-social">
+          <a href="#" class="social-icon" id="instagram-link" target="_blank" rel="noopener" title="Instagram">◈</a>
+          <a href="#" class="social-icon" id="linkedin-link" target="_blank" rel="noopener" title="LinkedIn">in</a>
+          <a href="#" class="social-icon" id="whatsapp-btn" target="_blank" rel="noopener" title="WhatsApp">📱</a>
+        </div>
+      </div>
+
+      <!-- Right — Avatar -->
+      <div class="hero-image-wrap">
+        <div style="position:relative">
+          <div class="hero-avatar-ring">
+            <div class="hero-avatar">
+              <img id="hero-avatar-img" src="" alt="Foto de perfil" style="display:none">
+              <span class="hero-avatar-placeholder" id="hero-avatar-placeholder">👤</span>
+            </div>
+          </div>
+
+          <!-- Floating badges -->
+          <div class="hero-badge hero-badge-1">
+            <div class="about-stat-mini">
+              <div class="stat-mini-item">
+                <span class="badge-value" id="about-stat1-num">+5</span>
+                <span class="badge-label" id="about-stat1-label">Años exp.</span>
+              </div>
+              <div class="stat-mini-item">
+                <span class="badge-value" id="about-stat2-num">+30</span>
+                <span class="badge-label" id="about-stat2-label">Proyectos</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-badge hero-badge-2">
+            <span class="badge-value" id="about-stat3-num">+10</span>
+            <span class="badge-label" id="about-stat3-label">Clientes</span>
+          </div>
+
+          <div class="hero-num">01</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- ABOUT                                                      -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <!-- Image -->
+      <div class="about-image-frame" data-reveal="left">
+        <div class="about-img-container">
+          <img id="about-img" src="" alt="Sobre mí" style="display:none">
+          <div class="about-img-placeholder" id="about-img-placeholder">
+            <span>👤</span>
+            <span>Tu foto aquí</span>
+          </div>
+        </div>
+        <!-- Float cards -->
+        <div class="about-card-float about-card-2">
+          <div style="font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:.3rem">Disponible</div>
+          <div style="font-size:.85rem;color:var(--text-secondary)">Para proyectos freelance</div>
+        </div>
+      </div>
+
+      <!-- Text -->
+      <div data-reveal>
+        <div class="section-tag">✦ Sobre mí</div>
+        <h2 class="section-title">Comunico,<br>creo, <span class="gradient-text">impacto.</span></h2>
+        <p class="section-subtitle" id="about-text">
+          Soy comunicador social con especialización en estrategia de contenidos, community management y producción audiovisual. Me apasiona traducir ideas complejas en mensajes que conectan.
+        </p>
+
+        <!-- Skills pills -->
+        <div class="skills-list" id="skills-pills">
+          <!-- Rendered by JS -->
+        </div>
+
+        <a href="#contact" class="btn btn-primary">Trabajemos juntos →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- SERVICES                                                   -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<section class="section" id="services">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <div class="section-tag">⚡ Servicios</div>
+      <h2 class="section-title">¿En qué puedo<br><span class="gradient-text">ayudarte?</span></h2>
+    </div>
+    <div class="services-grid" id="services-grid">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- PROJECTS                                                   -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<section class="section" id="projects">
+  <div class="container">
+    <div class="section-header" style="display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:2rem" data-reveal>
+      <div>
+        <div class="section-tag">💼 Proyectos</div>
+        <h2 class="section-title">Trabajo<br><span class="gradient-text">seleccionado</span></h2>
+      </div>
+    </div>
+    <!-- Filters -->
+    <div class="projects-filters">
+      <button class="filter-btn active" data-filter="all">Todos</button>
+      <button class="filter-btn" data-filter="community">Community</button>
+      <button class="filter-btn" data-filter="diseño">Diseño</button>
+      <button class="filter-btn" data-filter="video">Video</button>
+      <button class="filter-btn" data-filter="politica">Política</button>
+      <button class="filter-btn" data-filter="fotografia">Fotografía</button>
+    </div>
+    <!-- Grid -->
+    <div class="projects-grid" id="projects-grid">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- Project Modal -->
+<div id="project-modal">
+  <div class="modal-backdrop"></div>
+  <div class="modal-box">
+    <button class="modal-close">✕</button>
+    <div class="modal-img">
+      <img id="modal-img" src="" alt="">
+    </div>
+    <div class="modal-body">
+      <div class="project-tags" style="margin-bottom:1rem" id="modal-tags"></div>
+      <h2 class="modal-title" id="modal-title"></h2>
+      <p class="modal-desc" id="modal-desc"></p>
+      <div class="modal-actions">
+        <a href="#" class="btn btn-primary" id="modal-link" target="_blank" rel="noopener">Ver proyecto →</a>
+        <button class="btn btn-secondary" onclick="closeModal()">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- EXPERIENCE                                                 -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<section class="section" id="experience" style="background:var(--bg-secondary)">
+  <div class="container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start" class="about-grid">
+      <div data-reveal>
+        <div class="section-tag">📅 Experiencia</div>
+        <h2 class="section-title">Mi camino<br><span class="gradient-text">profesional</span></h2>
+        <p class="section-subtitle">Un recorrido por los proyectos y organizaciones que moldearon mi visión como comunicador.</p>
+      </div>
+      <div data-reveal data-delay="2">
+        <div class="timeline" id="timeline">
+          <!-- Rendered by JS -->
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- CERTIFICATES                                               -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<section class="section" id="certificates">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <div class="section-tag">🏆 Certificados</div>
+      <h2 class="section-title">Formación &<br><span class="gradient-text">certificaciones</span></h2>
+    </div>
+    <div class="certs-grid">
+      <div class="cert-card" data-reveal data-delay="1">
+        <div class="cert-icon">🎓</div>
+        <div class="cert-title">Licenciatura en Comunicación Social</div>
+        <div class="cert-issuer">Universidad Nacional de Entre Ríos</div>
+        <span class="cert-date">2015 — 2020</span>
+      </div>
+      <div class="cert-card" data-reveal data-delay="2">
+        <div class="cert-icon">📱</div>
+        <div class="cert-title">Community Manager Profesional</div>
+        <div class="cert-issuer">Escuela de Negocios Online</div>
+        <span class="cert-date">2021</span>
+      </div>
+      <div class="cert-card" data-reveal data-delay="3">
+        <div class="cert-icon">🎬</div>
+        <div class="cert-title">Producción Audiovisual Avanzada</div>
+        <div class="cert-issuer">Instituto Argentino de Imagen</div>
+        <span class="cert-date">2022</span>
+      </div>
+      <div class="cert-card" data-reveal data-delay="4">
+        <div class="cert-icon">🏛️</div>
+        <div class="cert-title">Comunicación Política Digital</div>
+        <div class="cert-issuer">FLACSO Argentina</div>
+        <span class="cert-date">2023</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- TESTIMONIALS                                               -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<section class="section" id="testimonials" style="background:var(--bg-secondary)">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <div class="section-tag">💬 Testimonios</div>
+      <h2 class="section-title">Lo que dicen<br><span class="gradient-text">mis clientes</span></h2>
+    </div>
+    <div class="testimonials-wrap">
+      <div class="testimonials-track">
+        <!-- Rendered by JS -->
+      </div>
+    </div>
+    <div class="testimonials-nav">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- CLIENTS                                                    -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<section class="section" id="clients" style="padding-top:4rem;padding-bottom:4rem">
+  <div class="container">
+    <div class="section-header" style="text-align:center;margin-bottom:3rem" data-reveal>
+      <div class="section-tag">🤝 Clientes</div>
+      <h2 class="section-title" style="font-size:var(--text-3xl)">Con quiénes<br><span class="gradient-text">trabajé</span></h2>
+    </div>
+  </div>
+  <div class="clients-marquee">
+    <div class="clients-track">
+      <!-- Rendered by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- CONTACT                                                    -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<section class="section" id="contact" style="background:var(--bg-secondary)">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <div class="section-tag">✉ Contacto</div>
+      <h2 class="section-title">Hablemos de<br><span class="gradient-text">tu proyecto</span></h2>
+      <p class="section-subtitle">Estoy disponible para proyectos freelance, colaboraciones y oportunidades full-time.</p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Info -->
+      <div class="contact-info" data-reveal="left">
+        <div class="contact-item">
+          <div class="contact-item-icon">✉</div>
+          <div>
+            <div class="contact-item-label">Email</div>
+            <div class="contact-item-value" id="contact-email">tunombre@email.com</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">☏</div>
+          <div>
+            <div class="contact-item-label">Teléfono / WhatsApp</div>
+            <div class="contact-item-value" id="contact-phone">+54 911 0000-0000</div>
+          </div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-item-icon">📍</div>
+          <div>
+            <div class="contact-item-label">Ubicación</div>
+            <div class="contact-item-value" id="contact-location">Entre Ríos, Argentina</div>
+          </div>
+        </div>
+        <a href="#" id="whatsapp-btn-contact" class="btn btn-primary" target="_blank" rel="noopener"
+           style="justify-content:center">
+          📱 Escribir por WhatsApp
+        </a>
+      </div>
+
+      <!-- Form -->
+      <div data-reveal>
+        <form class="contact-form" id="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Nombre</label>
+              <input type="text" class="form-control" placeholder="Tu nombre" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" placeholder="tu@email.com" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Servicio de interés</label>
+            <select class="form-control">
+              <option>Community Management</option>
+              <option>Video & Fotografía</option>
+              <option>Diseño Gráfico</option>
+              <option>Comunicación Política</option>
+              <option>Otro</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Mensaje</label>
+            <textarea class="form-control" placeholder="Contame sobre tu proyecto..." required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Enviar mensaje →</button>
+          <div class="form-success-msg" id="form-success">
+            ✓ Mensaje enviado. Te respondo a la brevedad.
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════ -->
+<!-- FOOTER                                                     -->
+<!-- ══════════════════════════════════════════════════════════ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand" id="footer-brand">Tu Nombre</div>
+      <div class="footer-links">
+        <a href="#about">Sobre mí</a>
+        <a href="#services">Servicios</a>
+        <a href="#projects">Proyectos</a>
+        <a href="#contact">Contacto</a>
+      </div>
+      <p class="footer-copy" id="footer-copy">© 2025 · Todos los derechos reservados</p>
+    </div>
+  </div>
+</footer>
+
+<!-- Scripts -->
+<script src="js/main.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>
